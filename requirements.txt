@@ -3,7 +3,8 @@ keras
 matplotlib
 numpy
 pandas
-seaborn
+scikeras
 scikit-learn
-tensorflow
+seaborn
+tensorflow-cpu
 ydata-profiling
