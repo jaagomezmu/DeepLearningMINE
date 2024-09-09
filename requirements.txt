@@ -1,5 +1,6 @@
 kaggle
 keras
+keras-tuner
 matplotlib
 numpy
 pandas
