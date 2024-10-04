@@ -2,7 +2,7 @@ services:
   deeplearning:
     build:
       context: .
-      dockerfile: ./config/Dockerfile
+      dockerfile: ./config/Dockerfile2
     ports:
       - "8000:8000"
     volumes:
@@ -10,3 +10,11 @@ services:
     env_file:
       - ./config/.env
     stdin_open: true
+    tty: true
+    command: jupyter lab --ip=0.0.0.0 --port=8000 --allow-root --no-browser
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia

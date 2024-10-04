@@ -4,8 +4,10 @@ keras-tuner
 matplotlib
 numpy
 pandas
+pillow
 scikeras
 scikit-learn
 seaborn
-tensorflow-cpu
+tensorflow
+ultralytics
 ydata-profiling
