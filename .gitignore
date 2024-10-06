@@ -164,3 +164,4 @@ cython_debug/
 .vscode/
 *.zip
 data/raw/data2/rsud20k/*
+data/preprocessed/data2/rsud20k/*
