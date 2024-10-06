@@ -3,7 +3,7 @@ RUN mkdir -p /app && chown -R root:root /app
 WORKDIR /app
 COPY requirements.txt ./
 RUN dnf -y update && \
-    dnf -y install python3 python3-pip && \
+    dnf -y install python3 python3-pip  mesa-libGL && \
     pip3 install jupyter && \
     pip3 install --no-cache-dir -r requirements.txt
 COPY . .

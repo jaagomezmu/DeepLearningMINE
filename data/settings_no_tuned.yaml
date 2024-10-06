@@ -1,0 +1,25 @@
+
+
+train: sample/train/images
+val: sample/val/images
+test: sample/test/images
+
+train_labels: sample/train/labels
+val_labels: sample/val/labels
+test_labels: sample/test/labels
+
+# Clases que el modelo debe detectar
+names:
+  0: person
+  1: rickshaw
+  2: rickshaw van
+  3: auto rickshaw
+  4: truck
+  5: pickup truck
+  6: private car
+  7: motorcycle
+  8: bicycle
+  9: bus
+  10: micro bus
+  11: covered van
+  12: human hauler

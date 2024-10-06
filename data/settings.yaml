@@ -1,13 +1,13 @@
 
 # Ruta raíz de las imágenes y etiquetas
-train: data/preprocessed/data2/rsud20k/images/train   # Ruta a las imágenes de entrenamiento
-val: data/preprocessed/data2/rsud20k/images/val       # Ruta a las imágenes de validación
-test: data/preprocessed/data2/rsud20k/images/test     # Ruta a las imágenes de prueba (opcional)
+train: preprocessed/data2/rsud20k/images/train   # Ruta a las imágenes de entrenamiento
+val: preprocessed/data2/rsud20k/images/val       # Ruta a las imágenes de validación
+test: preprocessed/data2/rsud20k/images/test     # Ruta a las imágenes de prueba (opcional)
 
 # Rutas a las etiquetas (opcional si se necesita)
-train_labels: data/preprocessed/data2/rsud20k/labels/train   # Ruta a las etiquetas de entrenamiento
-val_labels: data/preprocessed/data2/rsud20k/labels/val       # Ruta a las etiquetas de validación
-test_labels: data/preprocessed/data2/rsud20k/labels/test     # Ruta a las etiquetas de prueba (opcional)
+train_labels: preprocessed/data2/rsud20k/labels/train   # Ruta a las etiquetas de entrenamiento
+val_labels: preprocessed/data2/rsud20k/labels/val       # Ruta a las etiquetas de validación
+test_labels: preprocessed/data2/rsud20k/labels/test     # Ruta a las etiquetas de prueba (opcional)
 
 # Clases que el modelo debe detectar
 names:
