@@ -1,0 +1,29 @@
+
+# Ruta raíz de las imágenes y etiquetas
+train: preprocessed/data2/rsud20k/images/train   # Ruta a las imágenes de entrenamiento
+val: preprocessed/data2/rsud20k/images/val       # Ruta a las imágenes de validación
+test: preprocessed/data2/rsud20k/images/test     # Ruta a las imágenes de prueba (opcional)
+
+# Rutas a las etiquetas (opcional si se necesita)
+train_labels: preprocessed/data2/rsud20k/labels/train   # Ruta a las etiquetas de entrenamiento
+val_labels: preprocessed/data2/rsud20k/labels/val       # Ruta a las etiquetas de validación
+test_labels: preprocessed/data2/rsud20k/labels/test     # Ruta a las etiquetas de prueba (opcional)
+
+# Clases que el modelo debe detectar
+names:
+  0: person
+  1: rickshaw
+  2: rickshaw van
+  3: auto rickshaw
+  4: truck
+  5: pickup truck
+  6: private car
+  7: motorcycle
+  8: bicycle
+  9: bus
+  10: micro bus
+  11: covered van
+  12: human hauler
+
+batch_size: 4
+workers: 4
