@@ -1,0 +1,12 @@
+contractions
+keras
+keras-tuner
+matplotlib
+pandas
+nltk
+numpy
+num2words
+sklearn
+tensorflow
+wordcloud
+ydata-profiling
