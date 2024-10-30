@@ -1,4 +1,6 @@
 contractions
+ipywidgets
+kaggle
 keras
 keras-tuner
 matplotlib
@@ -6,7 +8,7 @@ pandas
 nltk
 numpy
 num2words
-sklearn
+scikit-learn
 tensorflow
 wordcloud
 ydata-profiling
