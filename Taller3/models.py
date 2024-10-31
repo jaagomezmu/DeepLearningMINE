@@ -9,13 +9,9 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from kaggle.api.kaggle_api_extended import KaggleApi
-from keras.layers import (
-    Dense,
-    Dropout,
-    Embedding,
-    LSTM,
-    TextVectorization
-)
+from keras.callbacks import EarlyStopping
+from keras.layers import LSTM, Dense, Dropout, Embedding, TextVectorization
+from keras.metrics import classification_report
 from keras.models import Sequential
 from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
@@ -40,6 +36,7 @@ class SentimentModel:
         self.text_field = text_field
         self.label_encoder = LabelEncoder()
         self.vectorize_layer = None
+        self.history = None
 
     @property
     def data_path(self):
@@ -201,6 +198,43 @@ class SentimentModel:
             metrics=['accuracy']
         )
 
+    def train_model(self):
+        self.history = self.model.fit(
+            self.X_train_tf,
+            self.y_train,
+            validation_data=(self.X_val_tf, self.y_val),
+            epochs=20,
+            callbacks=[
+                EarlyStopping(patience=4)
+            ]
+        )
+
+    def evaluate_model(self) -> tuple[pd.DataFrame, pd.DataFrame]:
+        # Predecir
+        y_pred_train = self.model.predict(self.X_train_tf)
+        y_pred_test = self.model.predict(self.X_test_tf)
+
+        # Indexar
+        y_pred_train = np.argmax(y_pred_train, axis=1)
+        y_pred_test = np.argmax(y_pred_test, axis=1)
+
+        # Reportar
+        self.report_train = pd.DataFrame(classification_report(
+            self.y_train, y_pred_train, output_dict=True
+        )).transpose()
+        self.report_test = pd.DataFrame(classification_report(
+            self.y_test, y_pred_test, output_dict=True
+        )).transpose()
+
+        return self.report_train, self.report_test
+
+    def save_model(self, model_name="base_model"):
+        self.model.save(f"{model_name}.h5")
+        history_df = pd.DataFrame(self.history.history)
+        history_df.to_csv(f"history_{model_name}.csv", index=False)
+        self.report_train.to_csv(f"report_train_{model_name}.csv", index=False)
+        self.report_test.to_csv(f"report_test_{model_name}.csv", index=False)
+
 
 if __name__ == '__main__':
     model_a = SentimentModel(
@@ -215,3 +249,6 @@ if __name__ == '__main__':
     model_a.create_vectorizer()
     model_a.plot_longitud_secuencias()
     model_a.build_model()
+    model_a.train_model()
+    model_a.evaluate_model()
+    model_a.save_model()
