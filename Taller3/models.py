@@ -11,9 +11,9 @@ import tensorflow as tf
 from kaggle.api.kaggle_api_extended import KaggleApi
 from keras.callbacks import EarlyStopping
 from keras.layers import LSTM, Dense, Dropout, Embedding, TextVectorization
-from keras.metrics import classification_report
 from keras.models import Sequential
 from nltk.corpus import stopwords
+from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
